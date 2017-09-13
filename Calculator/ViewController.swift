@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     var isTypingDigit = false, decimalIsTouched = false
     
     @IBAction func touchDigit(_ sender: UIButton) {
-        sender.layer.borderColor = UIColor.white.cgColor
+     //   sender.layer.borderColor = UIColor.white.cgColor
         
         let displayText = display.text!
         
@@ -56,6 +56,7 @@ class ViewController: UIViewController {
         
         if isTypingDigit{
             display.text = displayText + touchedDigit
+            display.layer.borderColor = UIColor.white.cgColor
         }else{
             display.text = touchedDigit
         }
