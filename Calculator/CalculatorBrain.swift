@@ -21,7 +21,13 @@ struct CalculatorBrain{
     
     private var historyDictionary = [Any]()
     
+    var variableValues = [String: Double]()
+    
     private var C_Clear = false, AC_Clear = false
+    
+       mutating func addVariable(variableName symbol: String, value: Double){
+        variableValues[symbol] = value
+    }
     
     // Convert the accumulator value to be whatever the value is passed in
     mutating func setOperand(_ operand: Double){
