@@ -25,7 +25,7 @@ struct CalculatorBrain{
     
     private var C_Clear = false, AC_Clear = false
     
-       mutating func addVariable(variableName symbol: String, value: Double){
+    mutating func addVariable(variableName symbol: String, value: Double){
         variableValues[symbol] = value
     }
     
@@ -38,6 +38,12 @@ struct CalculatorBrain{
         accumulator = operand
         
         internalProgram.append(operand as AnyObject)
+    }
+    
+    mutating func setOperant(_ variable: String){
+        historyDictionary.append(variable)
+        accumulator = variableValues[variable] ?? 0
+        print("variable: \(variable)=\(variableValues[variable] ?? 0)")
     }
     
     // Dicitionary list of all the operations

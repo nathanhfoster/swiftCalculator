@@ -80,5 +80,25 @@ class ViewController: UIViewController {
         
         displayValue = calculatorBrain.result
     }
+    @IBOutlet weak var variable: UITextField!
+    @IBOutlet weak var variableValue: UITextField!
+   
+
+    @IBAction func use(_ sender: UIButton) {
+        variableValue.text! = ""
+        calculatorBrain.setOperant(variable.text!)
+        if let str = calculatorBrain.variableValues[variable.text!]{
+            displayValue = str
+        }
+    }
+    
+    @IBAction func create(_ sender: UIButton) {
+        if let temp = variable.text{
+            if let db = Double(variableValue.text!){
+                calculatorBrain.addVariable(variableName: temp, value: db)
+            }
+        }
+    
+    }
 }
 
